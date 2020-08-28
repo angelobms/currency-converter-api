@@ -105,6 +105,7 @@ public class User {
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
