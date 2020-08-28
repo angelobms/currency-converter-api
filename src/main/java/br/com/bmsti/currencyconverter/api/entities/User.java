@@ -1,5 +1,8 @@
 package br.com.bmsti.currencyconverter.api.entities;
 
+import br.com.bmsti.currencyconverter.api.enums.CurrencyType;
+import br.com.bmsti.currencyconverter.api.enums.Profile;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -26,6 +29,10 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "profile", nullable = false)
+    private Profile profile;
 
     @Column(name = "createdAt", nullable = false)
     private LocalDateTime createdAt;
@@ -63,6 +70,14 @@ public class User {
         this.password = password;
     }
 
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -95,5 +110,17 @@ public class User {
     @PreUpdate
     public void preUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", profile=" + profile +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }
