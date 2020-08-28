@@ -23,14 +23,19 @@ public class Transaction {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "originCurrency", nullable = false)
     private CurrencyType originCurrency;
 
     @Column(name = "originValue", nullable = false)
     private BigDecimal originValue;
+
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "targetCurrency", nullable = false)
+    private CurrencyType targetCurrency;
 
     @Column(name = "conversionRate", nullable = false)
     private BigDecimal conversionRate;
@@ -79,6 +84,14 @@ public class Transaction {
         this.originValue = originValue;
     }
 
+    public CurrencyType getTargetCurrency() {
+        return targetCurrency;
+    }
+
+    public void setTargetCurrency(CurrencyType targetCurrency) {
+        this.targetCurrency = targetCurrency;
+    }
+
     public BigDecimal getConversionRate() {
         return conversionRate;
     }
@@ -119,5 +132,20 @@ public class Transaction {
     @PreUpdate
     public void preUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", user=" + user +
+                ", originCurrency=" + originCurrency +
+                ", originValue=" + originValue +
+                ", targetCurrency=" + targetCurrency +
+                ", conversionRate=" + conversionRate +
+                ", dateTransaction=" + dateTransaction +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }
