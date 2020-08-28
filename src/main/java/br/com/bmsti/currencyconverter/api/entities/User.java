@@ -17,7 +17,7 @@ import java.util.Set;
  * @since 28/08/2020
  */
 @Entity
-@Table(name = "user")
+@Table(name = "tb_user")
 public class User {
 
     @Id

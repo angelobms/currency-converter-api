@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  * @since 28/08/2020
  */
 @Entity
-@Table(name = "transaction")
+@Table(name = "tb_transaction")
 public class Transaction {
 
     @Id
