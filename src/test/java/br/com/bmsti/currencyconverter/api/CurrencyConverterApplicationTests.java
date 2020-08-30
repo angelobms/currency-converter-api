@@ -1,9 +1,11 @@
-package br.com.bmsti.currencyconverter;
+package br.com.bmsti.currencyconverter.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class CurrencyConverterApplicationTests {
 
     @Test
