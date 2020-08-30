@@ -17,14 +17,17 @@ import org.springframework.data.domain.PageRequest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class TransactionRepositoryTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
+    private static final Long TRANSACTION_ID = 1L;
 
     @Autowired
     private UserRepository userRepository;
@@ -55,6 +58,15 @@ public class TransactionRepositoryTest {
     }
 
     @Test
+    public void shouldFindTransactionById() {
+        LOG.info("Executing 'shouldFindTransactionById' test");
+
+        Optional<Transaction> transactions = this.transactionRepository.findById(TRANSACTION_ID);
+
+        assertNotNull(transactions);
+    }
+
+    @Test
     public void shouldFindTransactionByUserId() {
         LOG.info("Executing 'shouldFindTransactionByUserId' test");
 
@@ -71,6 +83,19 @@ public class TransactionRepositoryTest {
         Page<Transaction> transactions = this.transactionRepository.findByUserId(userId, page);
 
         assertEquals(3, transactions.getTotalElements());
+    }
+
+    @Test
+    public void shouldPersistTransaction() {
+        LOG.info("Executing 'shouldPersistTransaction' test");
+        Optional<User> user = this.userRepository.findById(userId);
+        
+        Transaction transaction = null;
+        if (user.isPresent()) {
+            transaction = this.transactionRepository.save(getTransactionData(user.get()));
+        }
+
+        assertNotNull(transaction);
     }
 
     private User getUserData() {
