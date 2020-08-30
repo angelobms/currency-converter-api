@@ -15,9 +15,6 @@ public class PasswordUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
 
-    public PasswordUtil() {
-    }
-
     /**
      * Method responsible for encrypting the user's password using the BCrypt library.
      *
@@ -31,7 +28,7 @@ public class PasswordUtil {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String passwordHash = bCryptPasswordEncoder.encode(password);
 
-        LOG.info("Encrypted user password.");
+        LOG.info("Encrypted user password: {}", passwordHash);
 
         return  passwordHash;
     }
