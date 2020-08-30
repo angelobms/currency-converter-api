@@ -1,4 +1,4 @@
-package br.com.bmsti.currencyconverter;
+package br.com.bmsti.currencyconverter.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
