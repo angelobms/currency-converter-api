@@ -40,7 +40,7 @@ $ git clone https://github.com/angelobms/currency-converter-api.git
 $ cd currency-converter-api
 ```
 
-### Running the application
+## Running the application
 
 * Via Eclipse or IntelliJ - Run the "Main" ProductApplication.java class as a java application (normal or debug).
 
@@ -50,8 +50,7 @@ $ cd currency-converter-api
 $ mvn spring-boot: run
 ```
 
-###  License
-----
+##  License
 
 MIT
 
