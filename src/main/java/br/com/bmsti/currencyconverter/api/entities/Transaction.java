@@ -1,10 +1,13 @@
 package br.com.bmsti.currencyconverter.api.entities;
 
 import br.com.bmsti.currencyconverter.api.enums.CurrencyType;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 /**
  * <b>Transaction</b> entity representing the database <b>transaction</b> table.
@@ -14,6 +17,8 @@ import java.time.LocalDateTime;
  * @version 1.0
  * @since 28/08/2020
  */
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_transaction")
 public class Transaction {
@@ -41,112 +46,22 @@ public class Transaction {
     private BigDecimal conversionRate;
 
     @Column(name = "dateTransaction", nullable = false)
-    private LocalDateTime dateTransaction;
+    private ZonedDateTime dateTransaction;
 
     @Column(name = "createdAt", nullable = false)
-    private LocalDateTime createdAt;
+    private ZonedDateTime createdAt;
 
     @Column(name = "updatedAt", nullable = false)
-    private LocalDateTime updatedAt;
-
-    public Transaction() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public CurrencyType getOriginCurrency() {
-        return originCurrency;
-    }
-
-    public void setOriginCurrency(CurrencyType originCurrency) {
-        this.originCurrency = originCurrency;
-    }
-
-    public BigDecimal getOriginValue() {
-        return originValue;
-    }
-
-    public void setOriginValue(BigDecimal originValue) {
-        this.originValue = originValue;
-    }
-
-    public CurrencyType getTargetCurrency() {
-        return targetCurrency;
-    }
-
-    public void setTargetCurrency(CurrencyType targetCurrency) {
-        this.targetCurrency = targetCurrency;
-    }
-
-    public BigDecimal getConversionRate() {
-        return conversionRate;
-    }
-
-    public void setConversionRate(BigDecimal conversionRate) {
-        this.conversionRate = conversionRate;
-    }
-
-    public LocalDateTime getDateTransaction() {
-        return dateTransaction;
-    }
-
-    public void setDateTransaction(LocalDateTime dateTransaction) {
-        this.dateTransaction = dateTransaction;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    private ZonedDateTime updatedAt;
 
     @PrePersist
     public void prePersist() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
+        updatedAt = ZonedDateTime.now(ZoneId.of("UTC"));
     }
 
     @PreUpdate
     public void preUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "id=" + id +
-                ", user=" + user +
-                ", originCurrency=" + originCurrency +
-                ", originValue=" + originValue +
-                ", targetCurrency=" + targetCurrency +
-                ", conversionRate=" + conversionRate +
-                ", dateTransaction=" + dateTransaction +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+        updatedAt = ZonedDateTime.now(ZoneId.of("UTC"));
     }
 }
