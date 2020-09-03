@@ -1,21 +1,20 @@
 package br.com.bmsti.currencyconverter.api.services;
 
+import br.com.bmsti.currencyconverter.api.dtos.UserDTO;
 import br.com.bmsti.currencyconverter.api.entities.User;
 import br.com.bmsti.currencyconverter.api.repositories.UserRepository;
-import br.com.bmsti.currencyconverter.api.utils.PasswordUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  *
@@ -23,10 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0
  * @since 30/08/2020
  */
+@Slf4j
 @SpringBootTest
 public class UserServiceTest {
-
-    private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
 
     private static final Long ID = 1L;
     private static final String EMAIL = "test@test.com";
@@ -45,17 +43,17 @@ public class UserServiceTest {
 
     @Test
     public void shouldFindUserById() {
-        LOG.info("Executing 'shouldFindUserById' user service test");
-        Optional<User> user = this.userService.findById(ID);
+        log.info("Executing 'shouldFindUserById' user service test");
+        UserDTO userDTO = this.userService.findById(ID);
 
-        assertTrue(user.isPresent());
+        assertNotNull(userDTO);
     }
 
     @Test
     public void shouldFindUserByEmail() {
-        LOG.info("Executing 'shouldFindUserByEmail' user service test");
-        Optional<User> user = this.userService.findByEmail(EMAIL);
+        log.info("Executing 'shouldFindUserByEmail' user service test");
+        UserDTO userDTO = this.userService.findByEmail(EMAIL);
 
-        assertTrue(user.isPresent());
+        assertNotNull(userDTO);
     }
 }

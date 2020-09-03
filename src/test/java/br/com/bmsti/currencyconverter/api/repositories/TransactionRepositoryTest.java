@@ -3,7 +3,7 @@ package br.com.bmsti.currencyconverter.api.repositories;
 import br.com.bmsti.currencyconverter.api.entities.Transaction;
 import br.com.bmsti.currencyconverter.api.entities.User;
 import br.com.bmsti.currencyconverter.api.enums.CurrencyType;
-import br.com.bmsti.currencyconverter.api.enums.Profile;
+import br.com.bmsti.currencyconverter.api.enums.ProfileType;
 import br.com.bmsti.currencyconverter.api.utils.PasswordUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.Set;
 
@@ -102,7 +103,7 @@ public class TransactionRepositoryTest {
         User user = new User();
         user.setEmail("test@test.com");
         user.setPassword(PasswordUtil.createHash("123456"));
-        user.setProfile(Profile.ROLE_USER);
+        user.setProfile(ProfileType.ROLE_USER);
         return user;
     }
 
@@ -113,7 +114,7 @@ public class TransactionRepositoryTest {
         transaction.setOriginValue(BigDecimal.valueOf(100.00));
         transaction.setTargetCurrency(CurrencyType.EUR);
         transaction.setConversionRate(BigDecimal.valueOf(0.8392782207));
-        transaction.setDateTransaction(LocalDateTime.now());
+        transaction.setDateTransaction(ZonedDateTime.now(ZoneId.of("UTC")));
         return transaction;
     }
 }

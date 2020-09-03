@@ -1,7 +1,7 @@
 package br.com.bmsti.currencyconverter.api.repositories;
 
 import br.com.bmsti.currencyconverter.api.entities.User;
-import br.com.bmsti.currencyconverter.api.enums.Profile;
+import br.com.bmsti.currencyconverter.api.enums.ProfileType;
 import br.com.bmsti.currencyconverter.api.utils.PasswordUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +30,7 @@ public class UserRepositoryTest {
         User user = new User();
         user.setEmail(EMAIL);
         user.setPassword(PasswordUtil.createHash("123456"));
-        user.setProfile(Profile.ROLE_USER);
+        user.setProfile(ProfileType.ROLE_USER);
         this.userRepository.save(user);
     }
 

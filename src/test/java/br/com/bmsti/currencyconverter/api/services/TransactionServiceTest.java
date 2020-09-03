@@ -1,14 +1,13 @@
 package br.com.bmsti.currencyconverter.api.services;
 
+import br.com.bmsti.currencyconverter.api.dtos.TransactionDTO;
 import br.com.bmsti.currencyconverter.api.entities.Transaction;
 import br.com.bmsti.currencyconverter.api.repositories.TransactionRepository;
-import br.com.bmsti.currencyconverter.api.utils.PasswordUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,7 +20,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -31,10 +31,9 @@ import static org.mockito.Mockito.verify;
  * @version 1.0
  * @since 30/08/2020
  */
+@Slf4j
 @SpringBootTest
 public class TransactionServiceTest {
-
-    private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
 
     private static final Long ID = 1L;
     private static final Long USER_ID = 1L;
@@ -60,16 +59,16 @@ public class TransactionServiceTest {
 
     @Test
     public void shouldFindTransactionById() {
-        LOG.info("Executing 'shouldFindTransactionById' transaction service test");
-        Optional<Transaction> transaction = this.transactionService.findById(ID);
+        log.info("Executing 'shouldFindTransactionById' transaction service test");
+        Transaction transaction = this.transactionService.findById(ID);
 
-        assertTrue(transaction.isPresent());
+        assertNotNull(transaction);
     }
 
     @Test
     public void shouldFindTransactionByUserId() {
-        LOG.info("Executing 'shouldFindTransactionByUserId' user service test");
-        Set<Transaction> transactions = this.transactionService.findByUserId(USER_ID);
+        log.info("Executing 'shouldFindTransactionByUserId' user service test");
+        Set<TransactionDTO> transactions = this.transactionService.findByUserId(USER_ID);
 
         totalTransactions = (long) transactions.size();
 
@@ -80,7 +79,7 @@ public class TransactionServiceTest {
 
     @Test
     public void shouldFindTransactionByUserIdPageable() {
-        LOG.info("Executing 'shouldFindTransactionByUserIdPageable' user service test");
+        log.info("Executing 'shouldFindTransactionByUserIdPageable' user service test");
         PageRequest pageRequest = PageRequest.of(0, 10);
         Page<Transaction> transactions = this.transactionService.findByUserId(USER_ID, pageRequest);
 
@@ -93,8 +92,8 @@ public class TransactionServiceTest {
 
     @Test
     public void shouldPersistTransaction() {
-        LOG.info("Executing 'shouldFindTransactionByUserIdPageable' user service test");
-        Optional<Transaction> transaction = this.transactionService.save(new Transaction());
+        log.info("Executing 'shouldFindTransactionByUserIdPageable' user service test");
+        TransactionDTO transaction = this.transactionService.save(new TransactionDTO());
 
         assertNotNull(transaction);
     }
