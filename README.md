@@ -42,7 +42,7 @@ $ cd currency-converter-api
 
 ## Running the application
 
-* Via Eclipse or IntelliJ - Run the "Main" ProductApplication.java class as a java application (normal or debug).
+* Via Eclipse or IntelliJ - Run the "Main" CurrencyConverterApplication.java class as a java application (normal or debug).
 
 * Via Maven - Run the command
 
