@@ -7,6 +7,6 @@ package br.com.bmsti.currencyconverter.api.enums;
  * @version 1.0
  * @since 28/08/2020
  */
-public enum Profile {
+public enum ProfileType {
     ROLE_ADMIN, ROLE_USER
 }
