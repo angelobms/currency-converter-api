@@ -3,8 +3,8 @@ CREATE TABLE tb_user (
 	email VARCHAR(255) NOT NULL UNIQUE,
 	password VARCHAR(255) NOT NULL,
 	profile VARCHAR(50) NOT NULL,
-	created_at TIMESTAMP NOT NULL,
-	updated_at TIMESTAMP NOT NULL
+	created_at TIMESTAMP without time zone default (now() at time zone 'utc'),
+	updated_at TIMESTAMP without time zone default (now() at time zone 'utc')
 );
 
 CREATE TABLE tb_transaction (
@@ -15,8 +15,8 @@ CREATE TABLE tb_transaction (
 	target_currency VARCHAR(3) NOT NULL,
 	conversion_rate DECIMAL(19,2) NOT NULL,
 	date_transaction DATE NOT NULL,
-	created_at TIMESTAMP NOT NULL,
-	updated_at TIMESTAMP NOT NULL
+	created_at TIMESTAMP without time zone default (now() at time zone 'utc'),
+	updated_at TIMESTAMP without time zone default (now() at time zone 'utc')
 );
 
 -- Index for table tb_transaction
