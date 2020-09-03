@@ -42,6 +42,7 @@ public class TransactionConverter {
         transactionDTO.setOriginCurrency(transaction.getOriginCurrency());
         transactionDTO.setOriginValue(transaction.getOriginValue());
         transactionDTO.setTargetCurrency(transaction.getTargetCurrency());
+        transactionDTO.setConversionRate(transaction.getConversionRate());
         transactionDTO.setDateTransaction(transaction.getDateTransaction());
 
         return transactionDTO;
