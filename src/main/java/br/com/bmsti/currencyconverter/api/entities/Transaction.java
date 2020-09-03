@@ -52,13 +52,13 @@ public class Transaction {
 
     @PrePersist
     public void prePersist() {
-        createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
-        updatedAt = ZonedDateTime.now(ZoneId.of("UTC"));
+        createdAt = ZonedDateTime.now().withZoneSameInstant(ZoneId.of("UTC"));
+        updatedAt = ZonedDateTime.now().withZoneSameInstant(ZoneId.of("UTC"));
     }
 
     @PreUpdate
     public void preUpdate() {
-        updatedAt = ZonedDateTime.now(ZoneId.of("UTC"));
+        updatedAt = ZonedDateTime.now().withZoneSameInstant(ZoneId.of("UTC"));
     }
 
     public Transaction() {

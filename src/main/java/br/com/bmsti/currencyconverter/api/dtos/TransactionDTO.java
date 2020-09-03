@@ -38,6 +38,7 @@ public class TransactionDTO {
 
     private BigDecimal targetValue;
 
+    @NotNull
     private ZonedDateTime dateTransaction;
 
     public TransactionDTO() {

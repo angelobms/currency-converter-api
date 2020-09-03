@@ -102,13 +102,18 @@ public class TransactionServiceImpl implements TransactionService {
 
         Transaction transaction = TransactionConverter.covertTo(transactionDTO);
         transaction.setConversionRate(conversionRate);
-        transaction.setDateTransaction(ZonedDateTime.now(ZoneId.of("UTC")));
+        if (transactionDTO.getDateTransaction() != null) {
+            transaction.setDateTransaction(transactionDTO.getDateTransaction().withZoneSameInstant(ZoneId.of("UTC")));
+        } else {
+            transaction.setDateTransaction(ZonedDateTime.now().withZoneSameInstant(ZoneId.of("UTC")));
+        }
 
         User user = UserConverter.contertTo(this.userService.findById(transactionDTO.getUserId()));
         transaction.setUser(user);
 
         TransactionDTO savedTransaction = TransactionConverter.covertTo(this.transactionRepository.save(transaction));
         savedTransaction.setTargetValue(result);
+        savedTransaction.setConversionRate(conversionRate);
 
         log.info("Persisting transaction {}", savedTransaction);
         return savedTransaction;
