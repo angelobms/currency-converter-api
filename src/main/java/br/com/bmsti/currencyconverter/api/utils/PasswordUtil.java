@@ -1,7 +1,6 @@
 package br.com.bmsti.currencyconverter.api.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -11,9 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @version 1.0
  * @since 29/08/2020
  */
+@Slf4j
 public class PasswordUtil {
-
-    private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
 
     /**
      * Method responsible for encrypting the user's password using the BCrypt library.
@@ -23,12 +21,12 @@ public class PasswordUtil {
      */
     public static String createHash(String password) {
 
-        LOG.info("Encrypting user password...");
+        log.info("Encrypting user password...");
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String passwordHash = bCryptPasswordEncoder.encode(password);
 
-        LOG.info("Encrypted user password: {}", passwordHash);
+        log.info("Encrypted user password: {}", passwordHash);
 
         return  passwordHash;
     }
