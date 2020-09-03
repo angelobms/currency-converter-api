@@ -1,7 +1,7 @@
 # Currency Converter
 ![](https://img.shields.io/github/languages/count/angelobms/currency-converter-api) ![](https://img.shields.io/github/repo-size/angelobms/currency-converter-api) ![](https://img.shields.io/github/last-commit/angelobms/currency-converter-api) ![](https://travis-ci.org/angelobms/currency-converter-api.svg?branch=master) 
 
-Currency conversion system API. [CurrencyConverterAPI]:<https://mighty-beyond-43289.herokuapp.com>
+Currency conversion system API. [CurrencyConverterAPI]
 
 The conversion application was implemented as a challenge for the company Jaya.Tech [jaya.tech]. It is possible from the application to obtain the currency conversion using conversion rates obtained obtained from https://api.exchangeratesapi.io.
 
@@ -69,3 +69,4 @@ MIT
 [Insomnia]: <https://insomnia.rest/>
 [Swagger]: <https://swagger.io/>
 [TravisCI]: <https://travis-ci.org/>
+[CurrencyConverterAPI]: <https://mighty-beyond-43289.herokuapp.com>
