@@ -1,10 +1,9 @@
 package br.com.bmsti.currencyconverter.api.services;
 
-import br.com.bmsti.currencyconverter.api.entities.User;
-
-import java.util.Optional;
+import br.com.bmsti.currencyconverter.api.dtos.UserDTO;
 
 /**
+ * Class interface service user
  *
  * @author angelo santos
  * @version 1.0
@@ -18,7 +17,7 @@ public interface UserService {
      * @param id user id
      * @return Optional<User>
      */
-    Optional<User> findById(Long id);
+    UserDTO findById(Long id);
 
     /**
      * Method responsible for searching for user by email.
@@ -26,6 +25,6 @@ public interface UserService {
      * @param email user email
      * @return Optional<User>
      */
-    Optional<User> findByEmail(String email);
+    UserDTO findByEmail(String email);
 
 }

@@ -1,13 +1,14 @@
 package br.com.bmsti.currencyconverter.api.services;
 
+import br.com.bmsti.currencyconverter.api.dtos.TransactionDTO;
 import br.com.bmsti.currencyconverter.api.entities.Transaction;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import java.util.Optional;
 import java.util.Set;
 
 /**
+ * Class interface service user
  *
  * @author angelo santos
  * @version 1.0
@@ -21,7 +22,7 @@ public interface TransactionService {
      * @param id transaction id
      * @return Optional<Transaction>
      */
-    Optional<Transaction> findById(Long id);
+    Transaction findById(Long id);
 
     /**
      * Method responsible for searching transactions by user id.
@@ -29,7 +30,7 @@ public interface TransactionService {
      * @param id transaction id
      * @return Optional<Transaction>
      */
-    Set<Transaction> findByUserId(Long id);
+    Set<TransactionDTO> findByUserId(Long id);
 
     /**
      * Method responsible for searching transactions by user id pageable.
@@ -42,9 +43,9 @@ public interface TransactionService {
     /**
      * Method responsible for persisting transaction.
      *
-     * @param transaction transaction
+     * @param transactionDTO transactionDTO
      * @return Optional<Transaction>
      */
-    Optional<Transaction> save(Transaction transaction);
+    TransactionDTO save(TransactionDTO transactionDTO);
 
 }
