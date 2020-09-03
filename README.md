@@ -3,7 +3,7 @@
 
 Currency conversion system API. [CurrencyConverterAPI]
 
-The conversion application was implemented as a challenge for the company Jaya.Tech [jaya.tech]. It is possible from the application to obtain the currency conversion using conversion rates obtained obtained from https://api.exchangeratesapi.io.
+It is possible from the application to obtain the currency conversion using conversion rates obtained obtained from https://api.exchangeratesapi.io.
 
 ## Features
 
@@ -23,6 +23,7 @@ Math Expression API was developed using the technologies bellow:
 * [Insomnia] - Insomnia
 * [Swagger] - Swagger
 * [TravisCI] - TravisCI
+* [Heroku] - Heroku
 
 ## Endpoins
 
@@ -68,4 +69,5 @@ MIT
 [Insomnia]: <https://insomnia.rest/>
 [Swagger]: <https://swagger.io/>
 [TravisCI]: <https://travis-ci.org/>
+[Heroku]: <https://www.heroku.com/>
 [CurrencyConverterAPI]: <https://mighty-beyond-43289.herokuapp.com>
