@@ -1,7 +1,7 @@
 # Currency Converter
 ![](https://img.shields.io/github/languages/count/angelobms/currency-converter-api) ![](https://img.shields.io/github/repo-size/angelobms/currency-converter-api) ![](https://img.shields.io/github/last-commit/angelobms/currency-converter-api) ![](https://travis-ci.org/angelobms/currency-converter-api.svg?branch=master) 
 
-Currency conversion system API. ![]:<>
+Currency conversion system API. [CurrencyConverterAPI]
 
 The conversion application was implemented as a challenge for the company Jaya.Tech [jaya.tech]. It is possible from the application to obtain the currency conversion using conversion rates obtained obtained from https://api.exchangeratesapi.io.
 
@@ -26,10 +26,10 @@ Math Expression API was developed using the technologies bellow:
 
 ## Endpoins
 
-- /api/transactions - Endpoint to convert a source currency to a target currency.
-- /api/transactions/1 - Endpoint to see the conversions used by a user.
+- \api\transactions - Endpoint to convert a source currency to a target currency.
+- \api\transactions\1 - Endpoint to see the conversions used by a user.
 
-The documentation of the endpoints can be consulted after running the application at http:// localhost:8080/swagger-ui.html
+The documentation of the endpoints can be consulted after running the application at http://localhost:8080/swagger-ui.html
 
 ## Installation
 
@@ -40,7 +40,7 @@ $ git clone https://github.com/angelobms/currency-converter-api.git
 $ cd currency-converter-api
 ```
 
-### Running the application
+## Running the application
 
 * Via Eclipse or IntelliJ - Run the "Main" ProductApplication.java class as a java application (normal or debug).
 
@@ -50,8 +50,7 @@ $ cd currency-converter-api
 $ mvn spring-boot: run
 ```
 
-###  License
-----
+##  License
 
 MIT
 
@@ -69,3 +68,4 @@ MIT
 [Insomnia]: <https://insomnia.rest/>
 [Swagger]: <https://swagger.io/>
 [TravisCI]: <https://travis-ci.org/>
+[CurrencyConverterAPI]: <https://mighty-beyond-43289.herokuapp.com>
