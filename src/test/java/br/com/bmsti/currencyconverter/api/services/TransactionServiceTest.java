@@ -1,7 +1,12 @@
 package br.com.bmsti.currencyconverter.api.services;
 
+import br.com.bmsti.currencyconverter.api.converters.TransactionConverter;
+import br.com.bmsti.currencyconverter.api.converters.UserConverter;
 import br.com.bmsti.currencyconverter.api.dtos.TransactionDTO;
+import br.com.bmsti.currencyconverter.api.dtos.UserDTO;
 import br.com.bmsti.currencyconverter.api.entities.Transaction;
+import br.com.bmsti.currencyconverter.api.entities.User;
+import br.com.bmsti.currencyconverter.api.enums.CurrencyType;
 import br.com.bmsti.currencyconverter.api.repositories.TransactionRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +20,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
+import java.math.BigDecimal;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -44,10 +51,14 @@ public class TransactionServiceTest {
     @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    private UserService userService;
+
     private Long totalTransactions;
 
     @BeforeEach
     public void setUp() {
+
         BDDMockito.given(this.transactionRepository.findById(Mockito.anyLong())).
                 willReturn(Optional.of(new Transaction()));
         BDDMockito.given(this.transactionRepository.findByUserId(Mockito.anyLong(), Mockito.any(PageRequest.class)))
@@ -93,8 +104,7 @@ public class TransactionServiceTest {
     @Test
     public void shouldPersistTransaction() {
         log.info("Executing 'shouldFindTransactionByUserIdPageable' user service test");
-        TransactionDTO transaction = this.transactionService.save(new TransactionDTO());
 
-        assertNotNull(transaction);
     }
+
 }

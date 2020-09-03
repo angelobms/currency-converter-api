@@ -1,10 +1,8 @@
 package br.com.bmsti.currencyconverter.api.integrations.exchangerates;
 
 import br.com.bmsti.currencyconverter.api.enums.CurrencyType;
-import br.com.bmsti.currencyconverter.api.services.impl.TransactionServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

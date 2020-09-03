@@ -21,7 +21,7 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    private static final String EMAIL = "test@test.com";
+    private static final String EMAIL = "admin@jaya.com";
 
     @BeforeEach
     public void setUp() {

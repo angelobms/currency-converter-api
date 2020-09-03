@@ -1,5 +1,6 @@
 package br.com.bmsti.currencyconverter.api.repositories;
 
+import br.com.bmsti.currencyconverter.api.dtos.TransactionDTO;
 import br.com.bmsti.currencyconverter.api.entities.Transaction;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,6 @@
 package br.com.bmsti.currencyconverter.api.entities;
 
 import br.com.bmsti.currencyconverter.api.enums.ProfileType;
-import lombok.*;
 
 import javax.persistence.*;
 import java.time.ZoneId;
@@ -17,8 +16,6 @@ import java.util.Set;
  * @version 1.0
  * @since 28/08/2020
  */
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "tb_user")
 public class User {
@@ -55,5 +52,64 @@ public class User {
     @PreUpdate
     public void preUpdate() {
         updatedAt = ZonedDateTime.now(ZoneId.of("UTC"));
+    }
+
+    public User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public ProfileType getProfile() {
+        return profile;
+    }
+
+    public void setProfile(ProfileType profile) {
+        this.profile = profile;
+    }
+
+    public ZonedDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ZonedDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(ZonedDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
