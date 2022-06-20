@@ -1,4 +1,4 @@
-# Currency Converter
+# Currency Converter 💰
 ![](https://img.shields.io/github/languages/count/angelobms/currency-converter-api) ![](https://img.shields.io/github/repo-size/angelobms/currency-converter-api) ![](https://img.shields.io/github/last-commit/angelobms/currency-converter-api) ![](https://travis-ci.org/angelobms/currency-converter-api.svg?branch=master) 
 
 Currency conversion system API. [CurrencyConverterAPI]
